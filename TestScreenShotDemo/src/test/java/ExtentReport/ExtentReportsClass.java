@@ -96,7 +96,7 @@ public class ExtentReportsClass {
 
 	}*/
 
-	@DataProvider
+	/*@DataProvider
 	public Object[][] paladionNetworkswithAws() {
 
 		Object data[][] = excel.getTestData("Paladion Networks with AWS");
@@ -110,7 +110,7 @@ public class ExtentReportsClass {
 		basicsetup(url, name);
 
 	}
-
+*/
 
 	/*@DataProvider
 	public Object[][] uplData() {
@@ -357,7 +357,7 @@ public class ExtentReportsClass {
 		logger = extent.startTest("Mdrazcentrallec");
 		basicsetup(url, name);
 
-	}
+	}*/
 	
 	@DataProvider
 	public Object[][] GodigitAzureO365() {
@@ -374,7 +374,7 @@ public class ExtentReportsClass {
 
 	
 
-	@DataProvider
+	/*@DataProvider
 	public Object[][] ASM() {
 		Object data[][] = excel.getTestData("ASM");
 		return data;
@@ -383,11 +383,11 @@ public class ExtentReportsClass {
 	@Test(dataProvider = "ASM", priority = 23)
 	public void ASMShippingwithAzureO365(String url, String name) throws IOException, InterruptedException, IllegalFormatException, FindFailed {
 		logger = extent.startTest("ASMShippingwithAzureO365");
-		basicsetuphttps(url, name);
+		basicSetupForASM(url, name);
 
-	}
+	}*/
 
-	@DataProvider
+	/*@DataProvider
 	public Object[][] PepperIndia() {
 		Object data[][] = excel.getTestData("PepperIndia");
 		return data;
@@ -696,7 +696,7 @@ public class ExtentReportsClass {
 	}
 	
 	
-	public void basicsetuphttps(String url, String name) throws IllegalFormatException, IOException, InterruptedException, NoSuchSessionException{
+	public void basicSetupForASM(String url, String name) throws IllegalFormatException, IOException, InterruptedException, NoSuchSessionException{
 		
 		System.setProperty("webdriver.chrome.driver",
 				".\\drivers\\chromedriver.exe");
@@ -735,18 +735,18 @@ public class ExtentReportsClass {
 		//System.out.println("clicked on proceed link............");
 		Screen scr=new Screen();
 	   
-	   //ScreenImage scrImgFile = scr.userCapture();
+	  // ScreenImage scrImgFile = scr.userCapture();
 	    Pattern pattern1 = null;
-	   /* 
-	  //THis method will save the file to the current directory
+	   
+	  /*//THis method will save the file to the current directory
 	   String path = scrImgFile.getFile(".");
 	    
 
 	    //This will print the full path of the save file
 	    System.out.println("Please note down the file Path: ");
-	    System.out.println(path);*/
-
-	    pattern1=new Pattern(".\\sikuliximage-1610603990094.png");
+	    System.out.println(path);
+*/
+	    pattern1=new Pattern("./Images/sikuliximage-1611929583530.png");
 	    
 	    try {
 	    	Thread.sleep(1000);
@@ -756,13 +756,13 @@ public class ExtentReportsClass {
 	        e.printStackTrace();
 	    }
 	    
-	    Thread.sleep(3000);
-	    /*ScreenImage scrImgFile2 = scr.userCapture();
+	    Thread.sleep(2000);
+	   /* ScreenImage scrImgFile2 = scr.userCapture();
 	    String path2 = scrImgFile2.getFile(".");
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path2);*/
 	    Pattern pattern2 = null;
-	    pattern2=new Pattern(".\\sikuliximage-1610604004190.png");
+	    pattern2=new Pattern("./Images/sikuliximage-1611929592016.png");
 	    
 	    try {
 	    	 scr.click(pattern2);
@@ -777,7 +777,7 @@ public class ExtentReportsClass {
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path3);*/
 	    Pattern pattern3 = null;
-	    pattern3=new Pattern(".\\sikuliximage-1610604009260.png");
+	    pattern3=new Pattern("./Images/sikuliximage-1611929595825.png");
 	    
 	    try {
 	    	 scr.click(pattern3);
@@ -840,18 +840,18 @@ public class ExtentReportsClass {
 		//System.out.println("clicked on proceed link............");
 		Screen scr=new Screen();
 	   
-	   //ScreenImage scrImgFile = scr.userCapture();
+	 // ScreenImage scrImgFile = scr.userCapture();
 	    Pattern pattern1 = null;
 	    
-	  /*//THis method will save the file to the current directory
-	  String path = scrImgFile.getFile(".");
-	    
+//	  //THis method will save the file to the current directory
+//	  String path = scrImgFile.getFile(".");
+//	    
+//
+//	    //This will print the full path of the save file
+//	  System.out.println("Please note down the file Path: ");
+//	    System.out.println(path);
 
-	    //This will print the full path of the save file
-	  System.out.println("Please note down the file Path: ");
-	    System.out.println(path);*/
-
-	    pattern1=new Pattern(".\\sikuliximage-1610604706473.png");
+	    pattern1=new Pattern("./Images/sikuliximage-1611929135063.png");
 	    Thread.sleep(1000);
 	    try {
 	    	Thread.sleep(1000);
@@ -861,13 +861,13 @@ public class ExtentReportsClass {
 	        e.printStackTrace();
 	    }
 	    
-	   /*Thread.sleep(2000);
-	    ScreenImage scrImgFile2 = scr.userCapture();
+	   Thread.sleep(2000);
+	    /*ScreenImage scrImgFile2 = scr.userCapture();
 	    String path2 = scrImgFile2.getFile(".");
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path2);*/
 	    Pattern pattern2 = null;
-	    pattern2=new Pattern(".\\sikuliximage-1610604717194.png");
+	    pattern2=new Pattern("./Images/sikuliximage-1611929144605.png");
 	    
 	    try {
 	    	 scr.click(pattern2);
@@ -877,12 +877,12 @@ public class ExtentReportsClass {
 	    }
 	    
 	    
-	    /*ScreenImage scrImgFile3 = scr.userCapture();
+	   /*ScreenImage scrImgFile3 = scr.userCapture();
 	    String path3 = scrImgFile3.getFile(".");
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path3);*/
 	    Pattern pattern3 = null;
-	    pattern3=new Pattern(".\\sikuliximage-1610604723497.png");
+	    pattern3=new Pattern("./Images/sikuliximage-1611929148633.png");
 	    
 	    try {
 	    	 scr.click(pattern3);
