@@ -653,7 +653,7 @@ public class ExtentReportsClass {
 	public void basicsetup(String url, String name) throws IllegalFormatException, IOException, TimeoutException {
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Pal\\workspace1\\TestScreenShotDemo\\drivers\\chromedriver.exe");
+				".\\drivers\\chromedriver.exe");
 		// Initialize browser
 		driver = new ChromeDriver();
 		// Maximize browser
@@ -699,7 +699,7 @@ public class ExtentReportsClass {
 	public void basicsetuphttps(String url, String name) throws IllegalFormatException, IOException, InterruptedException, NoSuchSessionException{
 		
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Pal\\workspace1\\TestScreenShotDemo\\drivers\\chromedriver.exe");
+				".\\drivers\\chromedriver.exe");
 		// Initialize browser
 		driver = new ChromeDriver();
 		// Maximize browser
@@ -746,7 +746,7 @@ public class ExtentReportsClass {
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path);*/
 
-	    pattern1=new Pattern("C:\\Users\\Pal\\git\\DailyHealthCheck\\TestScreenShotDemo\\.\\sikuliximage-1610603990094.png");
+	    pattern1=new Pattern(".\\sikuliximage-1610603990094.png");
 	    
 	    try {
 	    	Thread.sleep(1000);
@@ -762,7 +762,7 @@ public class ExtentReportsClass {
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path2);*/
 	    Pattern pattern2 = null;
-	    pattern2=new Pattern("C:\\Users\\Pal\\git\\DailyHealthCheck\\TestScreenShotDemo\\.\\sikuliximage-1610604004190.png");
+	    pattern2=new Pattern(".\\sikuliximage-1610604004190.png");
 	    
 	    try {
 	    	 scr.click(pattern2);
@@ -777,7 +777,7 @@ public class ExtentReportsClass {
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path3);*/
 	    Pattern pattern3 = null;
-	    pattern3=new Pattern("C:\\Users\\Pal\\git\\DailyHealthCheck\\TestScreenShotDemo\\.\\sikuliximage-1610604009260.png");
+	    pattern3=new Pattern(".\\sikuliximage-1610604009260.png");
 	    
 	    try {
 	    	 scr.click(pattern3);
@@ -803,7 +803,7 @@ public class ExtentReportsClass {
 	public void basicSetupForGodigit(String url, String name) throws IllegalFormatException, IOException,TimeoutException,InterruptedException,NoSuchSessionException{
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Pal\\workspace1\\TestScreenShotDemo\\drivers\\chromedriver.exe");
+				".\\drivers\\chromedriver.exe");
 		// Initialize browser
 		driver = new ChromeDriver();
 		// Maximize browser
@@ -851,7 +851,7 @@ public class ExtentReportsClass {
 	  System.out.println("Please note down the file Path: ");
 	    System.out.println(path);*/
 
-	    pattern1=new Pattern("C:\\Users\\Pal\\git\\DailyHealthCheck\\TestScreenShotDemo\\.\\sikuliximage-1610604706473.png");
+	    pattern1=new Pattern(".\\sikuliximage-1610604706473.png");
 	    Thread.sleep(1000);
 	    try {
 	    	Thread.sleep(1000);
@@ -867,7 +867,7 @@ public class ExtentReportsClass {
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path2);*/
 	    Pattern pattern2 = null;
-	    pattern2=new Pattern("C:\\Users\\Pal\\git\\DailyHealthCheck\\TestScreenShotDemo\\.\\sikuliximage-1610604717194.png");
+	    pattern2=new Pattern(".\\sikuliximage-1610604717194.png");
 	    
 	    try {
 	    	 scr.click(pattern2);
@@ -882,7 +882,7 @@ public class ExtentReportsClass {
 	    System.out.println("Please note down the file Path: ");
 	    System.out.println(path3);*/
 	    Pattern pattern3 = null;
-	    pattern3=new Pattern("C:\\Users\\Pal\\git\\DailyHealthCheck\\TestScreenShotDemo\\.\\sikuliximage-1610604723497.png");
+	    pattern3=new Pattern(".\\sikuliximage-1610604723497.png");
 	    
 	    try {
 	    	 scr.click(pattern3);
