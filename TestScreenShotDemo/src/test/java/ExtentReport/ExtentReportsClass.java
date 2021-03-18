@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -65,16 +66,163 @@ public class ExtentReportsClass {
 		extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
 	}
 
-	/*@DataProvider
-	public Object[][] paladionNetworksWithO365Data() {
+	/******HTTPS**************/
 
-		Object data[][] = excel.getTestData("Paladion Networks With O365");
+	@DataProvider public Object[][] GodigitAzureO365()
+	{
+		Object data[][] =excel.getTestData("GodigitAzureO365"); return data; }
+
+	@Test(dataProvider = "GodigitAzureO365", priority = 1) public void
+	GodigitAzureO365(String url, String name) throws IOException,InterruptedException, IllegalFormatException, FindFailed
+	{ 
+		logger =extent.startTest("GodigitAzureO365");
+		basicSetupForGodigit(url, name);
+
+	}
+
+
+
+	@DataProvider public Object[][] ASM()
+	{ 
+		Object data[][] =excel.getTestData("ASM"); 
+		return data; 
+	}
+
+	@Test(dataProvider = "ASM", priority = 2) 
+	public void ASMShippingwithAzureO365(String url, String name) throws IOException,
+	InterruptedException, IllegalFormatException, FindFailed 
+	{ 
+		logger =extent.startTest("ASMShippingwithAzureO365"); 
+		basicsetupASM(url, name);
+
+	}
+
+	@DataProvider
+	public Object[][] IslamicDevelopmentBank() {		
+		Object data[][] = excel.getTestData("Islamic Development Bank");
 		return data;
 	}
 
-	@Test(dataProvider = "paladionNetworksWithO365Data", priority = 1)
-	public void PaladionNetworksWithAzureAndOffice365(String url, String name)
-			throws IOException, InterruptedException {
+	@Test(dataProvider = "IslamicDevelopmentBank", priority = 3)
+	public void IslamicDevelopmentBankWithAzure(String url, String name) throws IOException, InterruptedException {
+		logger = extent.startTest("IslamicDevelopmentBankWithAzure");
+		IslamicDevelopmentBankhttps(url, name);
+
+	}
+
+
+	@DataProvider public Object[][] UtilitySupplyandConstruction() { 
+		Object data[][] = excel.getTestData("UtilitySupplyandConstruction"); 
+		return data; 
+	}
+
+	@Test(dataProvider = "UtilitySupplyandConstruction", priority = 4)
+	public void UtilitySupplyandConstructionWithAzure(String url, String name) throws IOException,InterruptedException { 
+		logger = extent.startTest("UtilitySupplyandConstructionWithAzure");
+		UtilitySupplyandConstructionhttps(url, name);
+
+	}
+
+
+
+	@DataProvider public Object[][] Godrej534455632755() {
+		Object data[][] =excel.getTestData("Godrej-534455632755"); 
+		return data; 
+	}
+
+	@Test(dataProvider = "Godrej534455632755", priority = 5) 
+	public void Godrej534455632755WithAWS(String url, String name) throws IOException, InterruptedException { 
+		logger = extent.startTest("Godrej534455632755WithAWS");
+		Godrej534455632755https(url, name);
+
+	}
+
+
+
+	@DataProvider public Object[][] Godrej260379443925() 
+	{ Object data[][] =
+	excel.getTestData("Godrej-260379443925"); 
+	return data; }
+
+	@Test(dataProvider = "Godrej260379443925", priority = 6) 
+	public void Godrej260379443925WithAWS(String url, String name) throws IOException,
+	InterruptedException { 
+		logger =extent.startTest("Godrej260379443925WithAWS");
+		Godrej260379443925https(url,name);
+
+	}
+
+
+	@DataProvider public Object[][] Godrej541586383052()
+	{ 
+		Object data[][] =excel.getTestData("Godrej-541586383052"); 
+	return data; 
+	}
+
+	@Test(dataProvider = "Godrej541586383052", priority = 7) 
+	public void Godrej541586383052WithAWS(String url, String name) throws IOException,
+	InterruptedException
+	{ 
+		logger =extent.startTest("Godrej541586383052WithAWS");
+		Godrej541586383052https(url,name);
+
+	}
+	
+	@DataProvider public Object[][] DHL1()
+	{ 
+		Object data[][] =excel.getTestData("DHL1"); 
+	return data; 
+	}
+
+	@Test(dataProvider = "DHL1", priority = 8) 
+	public void DHL1(String url, String name) throws IOException,InterruptedException
+	{ 
+		logger =extent.startTest("DHL1");
+		DHL1https(url,name);
+
+	}
+	
+
+	@DataProvider public Object[][] DHL2()
+	{ 
+		Object data[][] =excel.getTestData("DHL2"); 
+	return data; 
+	}
+
+	@Test(dataProvider = "DHL2", priority = 9) 
+	public void DHL2(String url, String name) throws IOException,InterruptedException
+	{ 
+		logger =extent.startTest("DHL2");
+		DHL2https(url,name);
+
+	}
+    
+	@DataProvider public Object[][] DHL3()
+	{ 
+		Object data[][] =excel.getTestData("DHL3"); 
+	return data; 
+	}
+
+	@Test(dataProvider = "DHL3", priority = 9) 
+	public void DHL3(String url, String name) throws IOException,InterruptedException
+	{ 
+		logger =extent.startTest("DHL3");
+		DHL3https(url,name);
+
+	}
+	//****************HTTPS************//*
+
+	@DataProvider public Object[][] paladionNetworksWithO365Data() 
+	{
+
+		Object data[][] = excel.getTestData("Paladion Networks With O365");
+		return data; 
+		
+	}
+
+	@Test(dataProvider = "paladionNetworksWithO365Data", priority = 8) public
+	void PaladionNetworksWithAzureAndOffice365(String url, String name) throws
+	IOException, InterruptedException {
 
 		logger = extent.startTest("PaladionNetworksWithAzureAndOffice365");
 
@@ -82,470 +230,349 @@ public class ExtentReportsClass {
 
 	}
 
-	@DataProvider
-	public Object[][] paladionNetworksAzure() {
 
-		Object data[][] = excel.getTestData("Paladion Networks with Azure");
-		return data;
-	}
+
+	@DataProvider public Object[][] paladionNetworksAzure() {
 
-	@Test(dataProvider = "paladionNetworksAzure", priority = 2)
-	public void PaladionNetworksWithAzure(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("PaladionNetworksWithAzure");
-		basicsetup(url, name);
+		Object data[][] = excel.getTestData("Paladion Networks with Azure"); return
+				data;
 
-	}*/
+	}
 
-	/*@DataProvider
-	public Object[][] paladionNetworkswithAws() {
+	@Test(dataProvider = "paladionNetworksAzure", priority = 9) public void
+	PaladionNetworksWithAzure(String url, String name) throws IOException,
+	InterruptedException { logger =
+	extent.startTest("PaladionNetworksWithAzure"); basicsetup(url, name);
 
-		Object data[][] = excel.getTestData("Paladion Networks with AWS");
-		return data;
 	}
 
-	@Test(dataProvider = "paladionNetworkswithAws", priority = 3)
-	public void PaladionNetworksWithAws(String url, String name) throws IOException, InterruptedException {
+	@DataProvider public Object[][] paladionNetworkswithAws() {
 
-		logger = extent.startTest("PaladionNetworksWithAws");
-		basicsetup(url, name);
+		Object data[][] = excel.getTestData("Paladion Networks with AWS"); return
+				data; }
 
-	}
-*/
+	@Test(dataProvider = "paladionNetworkswithAws", priority = 10) public void
+	PaladionNetworksWithAws(String url, String name) throws
+	IOException,InterruptedException {
+
+		logger = extent.startTest("PaladionNetworksWithAws"); basicsetup(url, name);
 
-	/*@DataProvider
-	public Object[][] uplData() {
-		Object data[][] = excel.getTestData("UPL");
-		return data;
 	}
 
-	@Test(dataProvider = "uplData", priority = 3)
-	public void UPL(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("UPL");
-		basicsetup(url, name);
 
-	}*/
 
-	/*@DataProvider
-	public Object[][] AlMuhaidib() {
-		Object data[][] = excel.getTestData("Al Muhaidib");
-		return data;
-	}
 
-	@Test(dataProvider = "AlMuhaidib", priority = 4)
-	public void AlMuhaidib(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("AlMuhaidib");
-		basicsetup(url, name);
+	@DataProvider public Object[][] AlMuhaidib() { Object data[][] =
+			excel.getTestData("Al Muhaidib"); return data; }
 
-	}
+	@Test(dataProvider = "AlMuhaidib", priority = 11) public void
+	AlMuhaidib(String url, String name) throws IOException, InterruptedException
+	{ logger = extent.startTest("AlMuhaidib"); basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] goDigitData() {
-		Object data[][] = excel.getTestData("GoDigit");
-		return data;
 	}
 
-	@Test(dataProvider = "goDigitData", priority = 5)
-	public void GoDigitWithAWS(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("GoDigitWithAWS");
-		basicsetup(url, name);
+	@DataProvider public Object[][] goDigitData() { Object data[][] =
+			excel.getTestData("GoDigit"); return data; }
 
-	}
+	@Test(dataProvider = "goDigitData", priority = 12) public void
+	GoDigitWithAWS(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("GoDigitWithAWS");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] ASGData() {
-		Object data[][] = excel.getTestData("ASG");
-		return data;
 	}
 
-	@Test(dataProvider = "ASGData", priority = 6)
-	public void ASGWithAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("ASGWithAws");
-		basicsetup(url, name);
+	@DataProvider public Object[][] ASGData() { Object data[][] =
+			excel.getTestData("ASG"); return data; }
 
-	}
+	@Test(dataProvider = "ASGData", priority = 13) public void ASGWithAws(String
+			url, String name) throws IOException, InterruptedException { logger =
+			extent.startTest("ASGWithAws"); basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] SPIGlobal() {
-		Object data[][] = excel.getTestData("SPI global");
-		return data;
 	}
 
-	@Test(dataProvider = "SPIGlobal", priority = 7)
-	public void SpiGlobalWithAzureAndO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("SpiGlobalWithAzureAndO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] SPIGlobal() { Object data[][] =
+			excel.getTestData("SPI global"); return data; }
 
-	}
+	@Test(dataProvider = "SPIGlobal", priority = 14) public void
+	SpiGlobalWithAzureAndO365(String url, String name) throws IOException,
+	InterruptedException { logger =
+	extent.startTest("SpiGlobalWithAzureAndO365"); basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] Trainz() {
-		Object data[][] = excel.getTestData("Trainz");
-		return data;
 	}
 
-	@Test(dataProvider = "Trainz", priority = 8)
-	public void TrainzWithAzure(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("TrainzWithAzure");
-		basicsetup(url, name);
+	@DataProvider public Object[][] Trainz() { Object data[][] =
+			excel.getTestData("Trainz"); return data; }
 
-	}
+	@Test(dataProvider = "Trainz", priority = 15) public void
+	TrainzWithAzure(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("TrainzWithAzure");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] SPIGlobalWithAWS() {
-		Object data[][] = excel.getTestData("SPI global1");
-		return data;
 	}
 
-	@Test(dataProvider = "SPIGlobalWithAWS", priority = 9)
-	public void SPIGlobalWithAWS(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("SPIGlobalWithAWS");
-		basicsetup(url, name);
+	@DataProvider public Object[][] SPIGlobalWithAWS() { Object data[][] =
+			excel.getTestData("SPI global1"); return data; }
 
-	}
+	@Test(dataProvider = "SPIGlobalWithAWS", priority = 16) public void
+	SPIGlobalWithAWS(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("SPIGlobalWithAWS");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] UNICOIL() {
-		Object data[][] = excel.getTestData("UNICOIL");
-		return data;
 	}
 
-	@Test(dataProvider = "UNICOIL", priority = 10)
-	public void UnicoilWithAzure(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("UnicoilWithAzure");
-		basicsetup(url, name);
+	@DataProvider public Object[][] UNICOIL() { Object data[][] =
+			excel.getTestData("UNICOIL"); return data; }
 
-	}
+	@Test(dataProvider = "UNICOIL", priority = 17) public void
+	UnicoilWithAzure(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("UnicoilWithAzure");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] UtkarshBank() {
-		Object data[][] = excel.getTestData("Utkarsh Bank");
-		return data;
 	}
 
-	@Test(dataProvider = "UtkarshBank", priority = 11)
-	public void UtkarshBankWithAzure(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("UtkarshBankWithAzure");
-		basicsetup(url, name);
+	@DataProvider public Object[][] UtkarshBank() { Object data[][] =
+			excel.getTestData("Utkarsh Bank"); return data; }
 
-	}
+	@Test(dataProvider = "UtkarshBank", priority = 18) public void
+	UtkarshBankWithAzure(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("UtkarshBankWithAzure");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] commonsaaslecind() {
-		Object data[][] = excel.getTestData("commonsaaslecind");
-		return data;
 	}
 
-	@Test(dataProvider = "commonsaaslecind", priority = 12)
-	public void CommonsaaslecindwithO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("CommonsaaslecindwithO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] commonsaaslecind() { Object data[][] =
+			excel.getTestData("commonsaaslecind"); return data; }
 
-	}
+	@Test(dataProvider = "commonsaaslecind", priority = 19) public void
+	CommonsaaslecindwithO365(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("CommonsaaslecindwithO365");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] ThomasCookData() {
-		Object data[][] = excel.getTestData("ThomasCook");
-		return data;
 	}
 
-	@Test(dataProvider = "ThomasCookData", priority = 13)
-	public void ThomasCookWithAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("ThomasCookWithAws");
-		basicsetup(url, name);
+	@DataProvider public Object[][] ThomasCookData() { Object data[][] =
+			excel.getTestData("ThomasCook"); return data; }
 
-	}
+	@Test(dataProvider = "ThomasCookData", priority = 20) public void
+	ThomasCookWithAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("ThomasCookWithAws");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] GoDigitAzureAndOffice365() {
-		Object data[][] = excel.getTestData("GoDigit1");
-		return data;
 	}
 
-	@Test(dataProvider = "GoDigitAzureAndOffice365", priority = 14)
-	public void GoDigitAzureAndO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("GoDigitAzureAndO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] GoDigitAzureAndOffice365() { Object data[][]
+			= excel.getTestData("GoDigit1"); return data; }
 
-	}
+	@Test(dataProvider = "GoDigitAzureAndOffice365", priority = 21) public void
+	GoDigitAzureAndO365(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("GoDigitAzureAndO365");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] commonsaaslecwipfli() {
-		Object data[][] = excel.getTestData("commonsaaslecwipfli");
-		return data;
 	}
 
-	@Test(dataProvider = "commonsaaslecwipfli", priority = 15)
-	public void CommonsaaslecwipfliWithO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("CommonsaaslecwipfliWithO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] commonsaaslecwipfli() { Object data[][] =
+			excel.getTestData("commonsaaslecwipfli"); return data; }
 
-	}
+	@Test(dataProvider = "commonsaaslecwipfli", priority = 22) public void
+	CommonsaaslecwipfliWithO365(String url, String name) throws IOException,
+	InterruptedException { logger =
+	extent.startTest("CommonsaaslecwipfliWithO365"); basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] MCGUIREData() {
-		Object data[][] = excel.getTestData("MCGUIRE");
-		return data;
 	}
 
-	@Test(dataProvider = "MCGUIREData", priority = 16)
-	public void McguirewithAzureAndO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("McguirewithAzureAndO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] MCGUIREData() { Object data[][] =
+			excel.getTestData("MCGUIRE"); return data; }
 
-	}
+	@Test(dataProvider = "MCGUIREData", priority = 23) public void
+	McguirewithAzureAndO365(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("McguirewithAzureAndO365");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] WipfliLLPData() {
-		Object data[][] = excel.getTestData("Wipfli LLP");
-		return data;
 	}
 
-	@Test(dataProvider = "WipfliLLPData", priority = 17)
-	public void WipfliLLPWithAzureAndO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("WipfliLLPWithAzureAndO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] WipfliLLPData() { Object data[][] =
+			excel.getTestData("Wipfli LLP"); return data; }
 
-	}
+	@Test(dataProvider = "WipfliLLPData", priority = 17) public void
+	WipfliLLPWithAzureAndO365(String url, String name) throws IOException,
+	InterruptedException { logger =
+	extent.startTest("WipfliLLPWithAzureAndO365"); basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] HPGData() {
-		Object data[][] = excel.getTestData("HPG");
-		return data;
 	}
 
-	@Test(dataProvider = "HPGData", priority = 18)
-	public void HPGwithAzureAndO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("HPGwithAzureAndO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] HPGData() { Object data[][] =
+			excel.getTestData("HPG"); return data; }
 
-	}
+	@Test(dataProvider = "HPGData", priority = 18) public void
+	HPGwithAzureAndO365(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("HPGwithAzureAndO365");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] commonsaaslecusa() {
-		Object data[][] = excel.getTestData("commonsaaslecusa");
-		return data;
 	}
 
-	@Test(dataProvider = "commonsaaslecusa", priority = 19)
-	public void CommonsaaslecusawithO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("CommonsaaslecusawithO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] commonsaaslecusa() { Object data[][] =
+			excel.getTestData("commonsaaslecusa"); return data; }
 
-	}
+	@Test(dataProvider = "commonsaaslecusa", priority = 19) public void
+	CommonsaaslecusawithO365(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("CommonsaaslecusawithO365");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] commonsaaslecpocusa() {
-		Object data[][] = excel.getTestData("commonsaaslecpocusa");
-		return data;
 	}
 
-	@Test(dataProvider = "commonsaaslecpocusa", priority = 20)
-	public void Commonsaaslecpocusa(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Commonsaaslecpocusa");
-		basicsetup(url, name);
+	@DataProvider public Object[][] commonsaaslecpocusa() { Object data[][] =
+			excel.getTestData("commonsaaslecpocusa"); return data; }
 
-	}
+	@Test(dataProvider = "commonsaaslecpocusa", priority = 20) public void
+	Commonsaaslecpocusa(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Commonsaaslecpocusa");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] mdrazcentrallec() {
-		Object data[][] = excel.getTestData("mdrazcentrallec");
-		return data;
 	}
 
-	@Test(dataProvider = "mdrazcentrallec", priority = 21)
-	public void Mdrazcentrallec(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Mdrazcentrallec");
-		basicsetup(url, name);
+	@DataProvider public Object[][] Integra2() 
+	{ 
+		Object data[][] =excel.getTestData("Integra2"); 
+		return data; 
+    }
 
-	}*/
-	
-	@DataProvider
-	public Object[][] GodigitAzureO365() {
-		Object data[][] = excel.getTestData("GodigitAzureO365");
-		return data;
+	@Test(dataProvider = "Integra2", priority = 21) 
+	public void Integra2(String url, String name) throws IOException,InterruptedException 
+	{ 
+		logger = extent.startTest("Integra2");
+	    basicsetup(url, name);
+
 	}
 
-	@Test(dataProvider = "GodigitAzureO365", priority = 22)
-	public void GodigitAzureO365(String url, String name) throws IOException, InterruptedException, IllegalFormatException, FindFailed {
-		logger = extent.startTest("GodigitAzureO365");
-		basicSetupForGodigit(url, name);
 
-	}
+	@DataProvider public Object[][] PepperIndia() { Object data[][] =
+			excel.getTestData("PepperIndia"); return data; }
 
-	
+	@Test(dataProvider = "PepperIndia", priority = 24) public void
+	PepperIndiawithAzureO365(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("PepperIndiawithAzureO365");
+	basicsetup(url, name);
 
-	/*@DataProvider
-	public Object[][] ASM() {
-		Object data[][] = excel.getTestData("ASM");
-		return data;
 	}
+
 
-	@Test(dataProvider = "ASM", priority = 23)
-	public void ASMShippingwithAzureO365(String url, String name) throws IOException, InterruptedException, IllegalFormatException, FindFailed {
-		logger = extent.startTest("ASMShippingwithAzureO365");
-		basicSetupForASM(url, name);
+	@DataProvider public Object[][] Simens1() { Object data[][] =
+			excel.getTestData("Simens1"); return data; }
 
-	}*/
+	@Test(dataProvider = "Simens1", priority = 25) public void
+	Simens1withAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens1withAws");
+	basicsetup(url, name);
 
-	/*@DataProvider
-	public Object[][] PepperIndia() {
-		Object data[][] = excel.getTestData("PepperIndia");
-		return data;
 	}
 
-	@Test(dataProvider = "PepperIndia", priority = 24)
-	public void PepperIndiawithAzureO365(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("PepperIndiawithAzureO365");
-		basicsetup(url, name);
+	@DataProvider public Object[][] Simens2() { Object data[][] =
+			excel.getTestData("Simens2"); return data; }
 
+	@Test(dataProvider = "Simens2", priority = 26) public void
+	Simens2withAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens2withAws");
+	basicsetup(url, name);
+
 	}
 
+	@DataProvider public Object[][] Simens3() { Object data[][] =
+			excel.getTestData("Simens3"); return data; }
 
-	@DataProvider
-	public Object[][] Simens1() {
-		Object data[][] = excel.getTestData("Simens1");
-		return data;
+	@Test(dataProvider = "Simens3", priority = 27) public void
+	Simens3withAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens3withAws");
+	basicsetup(url, name);
+
 	}
 
-	@Test(dataProvider = "Simens1", priority = 25)
-	public void Simens1withAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens1withAws");
-		basicsetup(url, name);
+	@DataProvider public Object[][] Simens4() { Object data[][] =
+			excel.getTestData("Simens4"); return data; }
 
-	}
+	@Test(dataProvider = "Simens4", priority = 28) public void
+	Simens4withAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens4withAws");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] Simens2() {
-		Object data[][] = excel.getTestData("Simens2");
-		return data;
 	}
 
-	@Test(dataProvider = "Simens2", priority = 26)
-	public void Simens2withAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens2withAws");
-		basicsetup(url, name);
+	@DataProvider public Object[][] Simens5() { Object data[][] =
+			excel.getTestData("Simens5"); return data; }
 
-	}
+	@Test(dataProvider = "Simens5", priority = 29) public void
+	Simens5withAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens5withAws");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] Simens3() {
-		Object data[][] = excel.getTestData("Simens3");
-		return data;
 	}
 
-	@Test(dataProvider = "Simens3", priority = 27)
-	public void Simens3withAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens3withAws");
-		basicsetup(url, name);
+	@DataProvider public Object[][] Simens6() { Object data[][] =
+			excel.getTestData("Simens6"); return data; }
 
-	}
+	@Test(dataProvider = "Simens6", priority = 30) public void
+	Simens6withAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens6withAws");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] Simens4() {
-		Object data[][] = excel.getTestData("Simens4");
-		return data;
 	}
 
-	@Test(dataProvider = "Simens4", priority = 28)
-	public void Simens4withAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens4withAws");
-		basicsetup(url, name);
+	@DataProvider public Object[][] Simens7() { Object data[][] =
+			excel.getTestData("Simens7"); return data; }
 
-	}
+	@Test(dataProvider = "Simens7", priority = 31) public void
+	Simens7withAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens7withAws");
+	basicsetup(url, name);
 
-	@DataProvider
-	public Object[][] Simens5() {
-		Object data[][] = excel.getTestData("Simens5");
-		return data;
 	}
 
-	@Test(dataProvider = "Simens5", priority = 29)
-	public void Simens5withAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens5withAws");
-		basicsetup(url, name);
+	@DataProvider public Object[][] Simens8() { Object data[][] =
+			excel.getTestData("Simens8"); return data; }
 
-	}
+	@Test(dataProvider = "Simens8", priority = 32) public void
+	Simens8withAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens8withAws");
 
-	@DataProvider
-	public Object[][] Simens6() {
-		Object data[][] = excel.getTestData("Simens6");
-		return data;
-	}
 
-	@Test(dataProvider = "Simens6", priority = 30)
-	public void Simens6withAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens6withAws");
-		basicsetup(url, name);
+	basicsetup(url, name);
 
 	}
 
-	@DataProvider
-	public Object[][] Simens7() {
-		Object data[][] = excel.getTestData("Simens7");
-		return data;
-	}
+	@DataProvider public Object[][] Simens9() { Object data[][] =
+			excel.getTestData("Simens9"); return data; }
 
-	@Test(dataProvider = "Simens7", priority = 31)
-	public void Simens7withAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens7withAws");
-		basicsetup(url, name);
+	@Test(dataProvider = "Simens9", priority = 32) public void
+	Simens9WithAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("Simens9WithAws");
+	basicsetup(url, name);
 
 	}
 
-	@DataProvider
-	public Object[][] Simens8() {
-		Object data[][] = excel.getTestData("Simens8");
-		return data;
-	}
+	@DataProvider public Object[][] MCGUIREAWS() { Object data[][] =
+			excel.getTestData("MCGUIREAWS"); return data; }
 
-	@Test(dataProvider = "Simens8", priority = 32)
-	public void Simens8withAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens8withAws");
-		basicsetup(url, name);
+	@Test(dataProvider = "MCGUIREAWS", priority = 32) public void
+	MCGUIREwithAws(String url, String name) throws IOException,
+	InterruptedException { logger = extent.startTest("MCGUIREwithAws");
+	basicsetup(url, name);
 
-	}
-	
-	@DataProvider
-	public Object[][] Simens9() {
-		Object data[][] = excel.getTestData("Simens9");
-		return data;
 	}
 
-	@Test(dataProvider = "Simens9", priority = 32)
-	public void Simens9WithAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Simens9WithAws");
-		basicsetup(url, name);
 
-	}
-	
-	@DataProvider
-	public Object[][] MCGUIREAWS() {
-		Object data[][] = excel.getTestData("MCGUIREAWS");
-		return data;
-	}
+	@DataProvider public Object[][] Integra() { 
+		Object data[][] =
+				excel.getTestData("Integra"); return data; }
 
-	@Test(dataProvider = "MCGUIREAWS", priority = 32)
-	public void MCGUIREwithAws(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("MCGUIREwithAws");
-		basicsetup(url, name);
+	@Test(dataProvider = "Integra", priority = 32) public void Integra(String
+			url, String name) throws IOException, InterruptedException { logger =
+			extent.startTest("Integra"); basicsetup(url, name);
 
-	}
-     
-	@DataProvider
-	public Object[][] Integra() {
-		Object data[][] = excel.getTestData("Integra");
-		return data;
 	}
+
+
+
 
-	@Test(dataProvider = "Integra", priority = 32)
-	public void Integra(String url, String name) throws IOException, InterruptedException {
-		logger = extent.startTest("Integra");
-		basicsetup(url, name);
 
-	}*/
-	
-	
-	
 	@AfterMethod
 	public void getResult(ITestResult result) throws Exception {
 		if (result.getStatus() == ITestResult.FAILURE) {
@@ -581,7 +608,7 @@ public class ExtentReportsClass {
 	}
 
 	public void checkigTheTotalQueueddata(String name) throws IOException, InterruptedException {
-		
+
 
 		Thread.sleep(4000);
 		WebElement totalQueuedData = driver.findElement(By.xpath("//span[@id='total-queued']"));
@@ -618,7 +645,7 @@ public class ExtentReportsClass {
 
 	public void checkingForErrorMessages(String name) throws InterruptedException, IOException {
 
-	WebElement zoomBtn = driver.findElement(By.xpath("//div[@id='naviagte-zoom-actual-size']//button"));
+		WebElement zoomBtn = driver.findElement(By.xpath("//div[@id='naviagte-zoom-actual-size']//button"));
 		zoomBtn.click();
 
 
@@ -652,21 +679,7 @@ public class ExtentReportsClass {
 
 	public void basicsetup(String url, String name) throws IllegalFormatException, IOException, TimeoutException {
 
-		System.setProperty("webdriver.chrome.driver",
-				".\\drivers\\chromedriver.exe");
-		// Initialize browser
-		driver = new ChromeDriver();
-		// Maximize browser
-
-		driver.manage().window().maximize();
-		e_driver = new EventFiringWebDriver(driver);
-
-		eventListener = new WebEventListener();
-		e_driver.register(eventListener);
-		driver = e_driver;
-
-		driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.MINUTES);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		commonMethodBrowser();
 		// Open nifi
 		try {
 			driver.get(url);
@@ -694,25 +707,11 @@ public class ExtentReportsClass {
 		// test.log(Status.INFO,"Checking for error messages");
 		// QueuedDataAndExceptions.checkingForErrorMessages(name);
 	}
-	
-	
-	public void basicSetupForASM(String url, String name) throws IllegalFormatException, IOException, InterruptedException, NoSuchSessionException{
-		
-		System.setProperty("webdriver.chrome.driver",
-				".\\drivers\\chromedriver.exe");
-		// Initialize browser
-		driver = new ChromeDriver();
-		// Maximize browser
+  
+	/**************/
+	public void DHL3https(String url, String name) throws IllegalFormatException, IOException, InterruptedException, NoSuchSessionException{
 
-		driver.manage().window().maximize();
-		e_driver = new EventFiringWebDriver(driver);
-
-		eventListener = new WebEventListener();
-		e_driver.register(eventListener);
-		driver = e_driver;
-
-		driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.MINUTES);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		commonMethodBrowser();
 		// Open nifi
 		try {
 			driver.get(url);
@@ -721,72 +720,75 @@ public class ExtentReportsClass {
 			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
 			System.out.println("NullPointerException thrown!,Not found the Element");
 			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
-			
+
 			driver.close();
 		}
-		/**
-		 * HTTPS code Impl
-		 */
+
 		Thread.sleep(1000);
 		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
 		advancedBtn.click();
-	
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		Thread.sleep(2000);
-		//System.out.println("clicked on proceed link............");
-		Screen scr=new Screen();
-	   
-	  // ScreenImage scrImgFile = scr.userCapture();
-	    Pattern pattern1 = null;
-	   
-	  /*//THis method will save the file to the current directory
-	   String path = scrImgFile.getFile(".");
-	    
 
-	    //This will print the full path of the save file
-	    System.out.println("Please note down the file Path: ");
-	    System.out.println(path);
-*/
-	    pattern1=new Pattern("./Images/sikuliximage-1611929583530.png");
-	    
-	    try {
-	    	Thread.sleep(1000);
-	    	 scr.click(pattern1);
-	    } catch (FindFailed e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    
-	    Thread.sleep(2000);
-	   /* ScreenImage scrImgFile2 = scr.userCapture();
-	    String path2 = scrImgFile2.getFile(".");
-	    System.out.println("Please note down the file Path: ");
-	    System.out.println(path2);*/
-	    Pattern pattern2 = null;
-	    pattern2=new Pattern("./Images/sikuliximage-1611929592016.png");
-	    
-	    try {
-	    	 scr.click(pattern2);
-	    } catch (FindFailed e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    
-	    
-	    /*ScreenImage scrImgFile3 = scr.userCapture();
-	    String path3 = scrImgFile3.getFile(".");
-	    System.out.println("Please note down the file Path: ");
-	    System.out.println(path3);*/
-	    Pattern pattern3 = null;
-	    pattern3=new Pattern("./Images/sikuliximage-1611929595825.png");
-	    
-	    try {
-	    	 scr.click(pattern3);
-	    } catch (FindFailed e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-		
-	    logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		Screen scr=new Screen();
+
+
+		/*ScreenImage scrImgFile = scr.userCapture();  String
+		path = scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);*/
+
+		Pattern pattern1 = null;
+
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614223565918.png");
+
+		try {
+			Thread.sleep(2000);
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		Thread.sleep(3000); 
+
+		/*ScreenImage scrImgFile2 = scr.userCapture(); String path2 =
+				scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);*/
+
+
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614223577190.png");
+
+		try {
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+
+		/*ScreenImage scrImgFile3 = scr.userCapture(); 
+		String path3 =scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);*/
+
+
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614223582019.png");
+
+		try {
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
 		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
 
 		try {
@@ -800,8 +802,288 @@ public class ExtentReportsClass {
 		}
 	}
 	
-	public void basicSetupForGodigit(String url, String name) throws IllegalFormatException, IOException,TimeoutException,InterruptedException,NoSuchSessionException{
+	public void DHL2https(String url, String name) throws IllegalFormatException, IOException, InterruptedException, NoSuchSessionException{
 
+		commonMethodBrowser();
+		// Open nifi
+		try {
+			driver.get(url);
+
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
+			System.out.println("NullPointerException thrown!,Not found the Element");
+			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
+
+			driver.close();
+		}
+
+		Thread.sleep(1000);
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		Thread.sleep(2000);
+
+		Screen scr=new Screen();
+
+/*
+		ScreenImage scrImgFile = scr.userCapture();  String
+		path = scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);*/
+
+		Pattern pattern1 = null;
+
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614224305307.png");
+
+		try {
+			Thread.sleep(2000);
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		Thread.sleep(3000); 
+
+		/*ScreenImage scrImgFile2 = scr.userCapture(); 
+		String path2 =scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);*/
+
+
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614224318053.png");
+
+		try {
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+
+		/*ScreenImage scrImgFile3 = scr.userCapture(); 
+		String path3 =scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);*/
+
+
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614224322947.png");
+
+		try {
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
+
+		try {
+			logger.log(LogStatus.INFO, "Checking for error messages");
+
+			checkigTheTotalQueueddata(name);
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+
+		}
+	}
+	
+	public void DHL1https(String url, String name) throws IllegalFormatException, IOException, InterruptedException, NoSuchSessionException{
+
+		commonMethodBrowser();
+		// Open nifi
+		try {
+			driver.get(url);
+
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
+			System.out.println("NullPointerException thrown!,Not found the Element");
+			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
+
+			driver.close();
+		}
+
+		Thread.sleep(1000);
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		Thread.sleep(2000);
+
+		Screen scr=new Screen();
+
+
+		/*ScreenImage scrImgFile = scr.userCapture();  String
+		path = scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);
+*/
+		Pattern pattern1 = null;
+
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614223410356.png");
+
+		try {
+			Thread.sleep(2000);
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		/*Thread.sleep(3000); 
+
+		ScreenImage scrImgFile2 = scr.userCapture(); 
+		String path2 =scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);
+*/
+
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614223421591.png");
+
+		try {
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+
+		/*ScreenImage scrImgFile3 = scr.userCapture(); 
+		String path3 =scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);
+*/
+
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1614223428037.png");
+
+		try {
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
+
+		try {
+			logger.log(LogStatus.INFO, "Checking for error messages");
+
+			checkigTheTotalQueueddata(name);
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+
+		}
+	}
+	/*********/
+	
+
+	public void basicsetupASM(String url, String name) throws IllegalFormatException, IOException, InterruptedException, NoSuchSessionException{
+
+		commonMethodBrowser();
+		// Open nifi
+		try {
+			driver.get(url);
+
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
+			System.out.println("NullPointerException thrown!,Not found the Element");
+			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
+
+			driver.close();
+		}
+
+		Thread.sleep(1000);
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		Thread.sleep(2000);
+
+		Screen scr=new Screen();
+
+
+		/*ScreenImage scrImgFile = scr.userCapture();  String
+		path = scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);*/
+
+		Pattern pattern1 = null;
+
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613652961955.png");
+
+		try {
+			Thread.sleep(2000);
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		Thread.sleep(3000); 
+
+		/*ScreenImage scrImgFile2 = scr.userCapture(); String path2 =
+				scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);
+*/
+
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613652974917.png");
+
+		try {
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+
+		/*ScreenImage scrImgFile3 = scr.userCapture(); 
+		String path3 =scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);*/
+
+
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613652980209.png");
+
+		try {
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
+
+		try {
+			logger.log(LogStatus.INFO, "Checking for error messages");
+
+			checkigTheTotalQueueddata(name);
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+
+		}
+	}
+
+	public void commonMethodBrowser() {
 		System.setProperty("webdriver.chrome.driver",
 				".\\drivers\\chromedriver.exe");
 		// Initialize browser
@@ -817,6 +1099,11 @@ public class ExtentReportsClass {
 
 		driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.MINUTES);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
+
+	public void Godrej541586383052https(String url, String name) throws IllegalFormatException, IOException,TimeoutException,InterruptedException,NoSuchSessionException{
+
+		commonMethodBrowser();
 		// Open nifi
 		try {
 			driver.get(url);
@@ -828,70 +1115,68 @@ public class ExtentReportsClass {
 			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
 			driver.close();
 		}
-		/**
-		 * HTTPS code Impl
-		 */
-		
-		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
-		advancedBtn.click();
-		
-		
-		
-		//System.out.println("clicked on proceed link............");
-		Screen scr=new Screen();
-	   
-	 // ScreenImage scrImgFile = scr.userCapture();
-	    Pattern pattern1 = null;
-	    
-//	  //THis method will save the file to the current directory
-//	  String path = scrImgFile.getFile(".");
-//	    
-//
-//	    //This will print the full path of the save file
-//	  System.out.println("Please note down the file Path: ");
-//	    System.out.println(path);
 
-	    pattern1=new Pattern("./Images/sikuliximage-1611929135063.png");
-	    Thread.sleep(1000);
-	    try {
-	    	Thread.sleep(1000);
-	    	 scr.click(pattern1);
-	    } catch (FindFailed e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    
-	   Thread.sleep(2000);
-	    /*ScreenImage scrImgFile2 = scr.userCapture();
-	    String path2 = scrImgFile2.getFile(".");
-	    System.out.println("Please note down the file Path: ");
-	    System.out.println(path2);*/
-	    Pattern pattern2 = null;
-	    pattern2=new Pattern("./Images/sikuliximage-1611929144605.png");
-	    
-	    try {
-	    	 scr.click(pattern2);
-	    } catch (FindFailed e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    
-	    
-	   /*ScreenImage scrImgFile3 = scr.userCapture();
-	    String path3 = scrImgFile3.getFile(".");
-	    System.out.println("Please note down the file Path: ");
-	    System.out.println(path3);*/
-	    Pattern pattern3 = null;
-	    pattern3=new Pattern("./Images/sikuliximage-1611929148633.png");
-	    
-	    try {
-	    	 scr.click(pattern3);
-	    } catch (FindFailed e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
 		
-	    logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		
+		Thread.sleep(2000);
+		
+		Screen scr=new Screen();
+		
+
+		/*ScreenImage scrImgFile = scr.userCapture(); 
+		String path =scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);*/
+
+		Pattern pattern1 = null;
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613659804838.png");
+
+		try {
+			
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		/*ScreenImage scrImgFile2 = scr.userCapture(); 
+		String path2= scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);*/
+
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613659811426.png");
+
+		try {
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+		Thread.sleep(2000);
+/*
+		ScreenImage scrImgFile3 = scr.userCapture(); 
+		String path3= scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);*/
+
+		
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613659817018.png");
+
+		try {
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
 		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
 
 		try {
@@ -903,5 +1188,469 @@ public class ExtentReportsClass {
 			System.out.println("NullPointerException thrown!,Not found the Element");
 
 		}
-      }
+	}
+
+
+	public void Godrej534455632755https(String url, String name) throws IllegalFormatException, IOException,TimeoutException,InterruptedException,NoSuchSessionException{
+
+		commonMethodBrowser();
+		// Open nifi
+		try {
+			driver.get(url);
+
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
+			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
+			driver.close();
+		}
+      
+		
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
+		Thread.sleep(2000);
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		Screen scr=new Screen();
+
+		/*ScreenImage scrImgFile = scr.userCapture(); 
+		String path =scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);*/
+      
+		Pattern pattern1 = null;
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613659014171.png");
+
+		try {
+			
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Thread.sleep(2000);
+		/*ScreenImage scrImgFile2 = scr.userCapture(); 
+		String path2= scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);*/
+
+
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613659022944.png");
+
+		try {
+			
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Thread.sleep(2000);
+
+		/*ScreenImage scrImgFile3 = scr.userCapture(); 
+		String path3 =scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);
+*/
+
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613659030752.png");
+
+		try {
+			
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
+
+		try {
+			logger.log(LogStatus.INFO, "Checking for error messages");
+
+			checkigTheTotalQueueddata(name);
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+
+		}
+	}
+
+
+	public void Godrej260379443925https(String url, String name) throws IllegalFormatException, IOException,TimeoutException,InterruptedException,NoSuchSessionException{
+
+		commonMethodBrowser();
+		// Open nifi
+		try {
+			driver.get(url);
+
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
+			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
+			driver.close();
+		}
+
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		Thread.sleep(2000);
+		Screen scr=new Screen();
+
+
+		/*ScreenImage scrImgFile = scr.userCapture(); 
+		String path =scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path); */
+		Pattern pattern1 = null;
+
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613654957172.png");
+		try {
+			
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+		/*Thread.sleep(2000);
+
+		ScreenImage scrImgFile2 = scr.userCapture(); 
+		String path2= scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);*/
+
+		Thread.sleep(3000);
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613654966765.png");
+
+		try {
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		/*Thread.sleep(2000); 
+		ScreenImage scrImgFile3 = scr.userCapture(); 
+		String path3 = scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);*/
+
+
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613654976446.png");
+
+		try {
+			Thread.sleep(2000);
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
+
+		try {
+			logger.log(LogStatus.INFO, "Checking for error messages");
+
+			checkigTheTotalQueueddata(name);
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+
+		}
+	}
+
+	public void UtilitySupplyandConstructionhttps(String url, String name) throws IllegalFormatException, IOException,TimeoutException,InterruptedException,NoSuchSessionException{
+
+		commonMethodBrowser();
+		// Open nifi
+		try {
+			driver.get(url);
+
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
+			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
+			driver.close();
+		}
+        
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		 Thread.sleep(2000);
+		Screen scr=new Screen();
+
+
+		/*ScreenImage scrImgFile = scr.userCapture(); 
+		String path =scrImgFile.getFile(".");
+		
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);*/
+		
+		 
+		Pattern patt1 = null;
+		patt1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613654451677.png");
+
+		try {
+			scr.click(patt1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+		/*Thread.sleep(3000);
+		ScreenImage scrImgFile2 = scr.userCapture();
+		String path2 =scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);*/
+
+		
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613654462483.png");
+
+		try {
+			Thread.sleep(2000);
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+		/*ScreenImage scrImgFile3 = scr.userCapture(); 
+		String path3 =scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);*/
+
+		Thread.sleep(2000);
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613654472100.png");
+
+		try {
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
+
+		try {
+			logger.log(LogStatus.INFO, "Checking for error messages");
+
+			checkigTheTotalQueueddata(name);
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+
+		}
+	}
+
+	public void IslamicDevelopmentBankhttps(String url, String name) throws IllegalFormatException, IOException,TimeoutException,InterruptedException,NoSuchSessionException{
+
+		commonMethodBrowser();
+		// Open nifi
+		try {
+			driver.get(url);
+
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
+			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
+			driver.close();
+		}
+
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		Thread.sleep(2000);
+		Screen scr=new Screen();
+
+
+
+		/*ScreenImage scrImgFile = scr.userCapture(); 
+		String path = scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);*/
+
+
+		Pattern pattern1 = null;
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613653070923.png");
+		Thread.sleep(2000);
+		try {
+		
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		Thread.sleep(3000);
+
+		/*ScreenImage scrImgFile2 = scr.userCapture();
+		String path2 =scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);*/
+
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613653084076.png");
+
+		try {
+			Thread.sleep(2000);
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Thread.sleep(2000);
+
+
+		/*ScreenImage scrImgFile3 = scr.userCapture(); String path3 =
+				scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);
+*/
+
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613653093162.png");
+
+		try {
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
+
+		try {
+			logger.log(LogStatus.INFO, "Checking for error messages");
+
+			checkigTheTotalQueueddata(name);
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+
+		}
+	}
+
+	public void basicSetupForGodigit(String url, String name) throws IllegalFormatException, IOException,TimeoutException,InterruptedException,NoSuchSessionException{
+
+		commonMethodBrowser();
+		// Open nifi
+		try {
+			
+			driver.get(url);		
+			
+			} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+			LOGWithScreenshot(logger, "fail", "Nifi LEC is not Loading");
+			logger.log(LogStatus.FAIL, "Nifi LEC is not Loading");
+			driver.close();
+		}
+		
+		
+		/**
+		 * HTTPS code Impl
+		 */
+
+		WebElement advancedBtn = driver.findElement(By.xpath("//button[@id='details-button']"));
+		advancedBtn.click();
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		Thread.sleep(2000);
+		Screen scr=new Screen();
+
+		/*ScreenImage scrImgFile = scr.userCapture(); 
+		String path =scrImgFile.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path);
+
+		Thread.sleep(3000);*/
+		Pattern pattern1=null;
+		pattern1=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613652871232.png");
+		
+		try {
+			
+			scr.click(pattern1);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+		Thread.sleep(3000);
+		/*ScreenImage scrImgFile2 = scr.userCapture(); 
+		String path2= scrImgFile2.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path2);*/
+
+
+
+		Pattern pattern2 = null;
+		pattern2=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613652886134.png");
+
+		try {
+			Thread.sleep(2000);
+			scr.click(pattern2);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+
+		/*ScreenImage scrImgFile3 = scr.userCapture();
+		String path3 =scrImgFile3.getFile(".");
+		System.out.println("Please note down the file Path: ");
+		System.out.println(path3);*/
+
+		Thread.sleep(2000);
+		
+		Pattern pattern3 = null;
+		pattern3=new Pattern("D:\\gitshwe\\DailyHealthCheckCode\\TestScreenShotDemo\\.\\sikuliximage-1613652892417.png");
+		
+		try {
+			
+			scr.click(pattern3);
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		logger.log(LogStatus.INFO, "Client is : " + name + " " + "URL is : " + url);
+		logger.log(LogStatus.INFO, "Checking forTotal Queued data");
+
+		try {
+			logger.log(LogStatus.INFO, "Checking for error messages");
+
+			checkigTheTotalQueueddata(name);
+		} catch (Exception e) {
+
+			System.out.println("NullPointerException thrown!,Not found the Element");
+
+		}
+	}
+
+	
 }

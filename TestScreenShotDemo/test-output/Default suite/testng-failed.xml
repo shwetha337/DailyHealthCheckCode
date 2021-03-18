@@ -7,7 +7,7 @@
         <methods>
           <include name="endReport"/>
           <include name="startReport"/>
-          <include name="ASMShippingwithAzureO365" invocation-numbers="0"/>
+          <include name="GoDigitAzureAndO365"/>
           <include name="getResult"/>
         </methods>
       </class> <!-- ExtentReport.ExtentReportsClass -->
